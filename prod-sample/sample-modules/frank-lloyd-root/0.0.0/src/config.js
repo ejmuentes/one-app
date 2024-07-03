@@ -24,11 +24,8 @@ export default {
   configureRequestLog: ({ req, log = { request: { metaData: {} } } }) => {
     const clonedLog = JSON.parse(JSON.stringify(log));
     const { cookies } = req;
-
-    clonedLog.request.metaData = {
-      userId: cookies ? cookies.userId || null : undefined,
-      ...clonedLog.request.metaData,
-    };
+    
+    clonedLog.request.metaData.env.userId = cookies ? cookies.userId || null : undefined;
 
     return clonedLog;
   },
