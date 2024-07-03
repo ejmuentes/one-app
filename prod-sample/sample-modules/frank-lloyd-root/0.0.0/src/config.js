@@ -25,7 +25,7 @@ export default {
     const clonedLog = JSON.parse(JSON.stringify(log));
     const { cookies } = req;
     
-    clonedLog.request.metaData.env.userId = cookies ? cookies.userId || null : undefined;
+    clonedLog.request.metaData.userId = cookies ? cookies.userId || null : undefined;
 
     return clonedLog;
   },
